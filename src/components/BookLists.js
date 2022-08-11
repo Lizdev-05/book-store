@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddBook from './AddBook';
+import Book from './Book';
 
 const BookLists = () => {
-  const books = [
+  const [books] = useState([
     {
       title: 'Invaluabe',
       author: 'Maya Grossman',
@@ -23,14 +24,12 @@ const BookLists = () => {
       author: 'Maya Grossman',
       id: 4,
     },
-  ];
+  ]);
   return (
     <div>
-      <ul>
-        {books.map((book) => (
-          <li key={book.id} title={book.title} author={book.author} />
-        ))}
-      </ul>
+      {books.map((book) => (
+        <Book key={book.id} title={book.title} author={book.author} />
+      ))}
       <AddBook />
     </div>
   );
