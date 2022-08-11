@@ -8,7 +8,9 @@ const Book = (props) => {
       <ul>
         <li>{title}</li>
         <li>{author}</li>
+        <button type="button">Remove</button>
       </ul>
+
     </div>
   );
 };
