@@ -1,4 +1,5 @@
 import React from 'react';
+import AddBook from './AddBook';
 
 const BookLists = () => {
   const books = [
@@ -30,6 +31,7 @@ const BookLists = () => {
           <li key={book.id} title={book.title} author={book.author} />
         ))}
       </ul>
+      <AddBook />
     </div>
   );
 };
