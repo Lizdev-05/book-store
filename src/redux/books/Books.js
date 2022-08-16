@@ -1,27 +1,25 @@
-import React from 'react';
-import Book from '../../components/Book'; 
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-let nextBookId = 0;
-const Books = () => (
-  <div>
-    <button
-      type="button"
-      onClick={() => {
-        store.dispatch({
-          type: 'ADD_TODO',
-          text: 'Study React',
-          id: nextBookId += 1,
-        });
-      }}
-    >
-      Add Book
-    </button>
-    <ul>
-      {books.map((book) => (
-        <Book key={book.id} title={book.title} author={book.author} />
-      ))}
-    </ul>
-  </div>
-);
+const initialState = [];
 
-export default Books;
+export default function books(state = initialState, action) {
+  switch (action.type) {
+    case ADD_BOOK:
+      return [...state, action.payload];
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.payload);
+    default:
+      return state;
+  }
+}
+
+export const addBook = (book) => ({
+  type: ADD_BOOK,
+  payload: book,
+});
+
+export const removeBook = (book) => ({
+  type: REMOVE_BOOK,
+  payload: book,
+});

@@ -1,20 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import books from './books/Books';
 
-const bookReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'ADD_BOOK':
-      return [
-        ...state,
-        {
-          id: action.id,
-          text: action.text,
-          completed: false,
-        },
-      ];
-    default:
-      return state;
-  }
+const rootReducer = {
+  books,
 };
-const store = configureStore(bookReducer);
+
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 export default store;
