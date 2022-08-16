@@ -1,7 +1,30 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-const initialState = [];
+const initialState = [
+  {
+    title: 'Invaluabe',
+    author: 'Maya Grossman',
+    id: uuidv4(),
+  },
+  {
+    title: 'Turn the ship Around',
+    author: 'L. David Marquet',
+    id: uuidv4(),
+  },
+  {
+    title: 'Dare to Lead,',
+    author: 'Brené Brown',
+    id: uuidv4(),
+  },
+  {
+    title: 'Invaluabe',
+    author: 'Maya Grossman',
+    id: uuidv4(),
+  },
+];
 
 export default function books(state = initialState, action) {
   switch (action.type) {
