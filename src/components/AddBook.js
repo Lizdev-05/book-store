@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/Books';
 
-const AddBook = () => {
+export default function AddBook() {
   const dispatch = useDispatch();
 
   const [bookValues, setBookValues] = useState({
@@ -57,5 +57,4 @@ const AddBook = () => {
       </form>
     </div>
   );
-};
-export default AddBook;
+}
