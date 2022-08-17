@@ -1,4 +1,3 @@
-// import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -28,7 +27,7 @@ export const addBook = createAsyncThunk(
       item_id: book.id,
       title: book.title,
       author: book.author,
-      category: 'NAN',
+      category: 'Not Available',
     });
     return {
       book: [
@@ -36,7 +35,7 @@ export const addBook = createAsyncThunk(
         [{
           author: book.author,
           title: book.title,
-          category: 'NAN',
+          category: 'Not Available',
         }],
       ],
     };
