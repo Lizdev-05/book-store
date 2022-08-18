@@ -6,10 +6,12 @@ import { removeBook } from '../redux/books/Books';
 const Book = (props) => {
   const dispath = useDispatch();
   const { title, author, id } = props;
+  const [title2, author2, completed, currChapter] = title.split('>');
 
   const removeHandler = () => {
     dispath(removeBook(id));
   };
+
 
   return (
     <>

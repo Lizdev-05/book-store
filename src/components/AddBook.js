@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/Books';
+import Option from './Option';
 
 export default function AddBook() {
   const dispatch = useDispatch();
@@ -9,6 +10,23 @@ export default function AddBook() {
   const [bookValues, setBookValues] = useState({
     title: '',
     author: '',
+    category: 'Fiction',
+    currentChapter: '0',
+    completed: '0%',
+    comments: [],
+  });
+
+  const bookCategories = [
+    { value: 'Fiction', content: 'Fiction' },
+    { value: 'Nonfiction', content: 'Nonfiction' },
+    { value: 'Drama', content: 'Drama' },
+    { value: 'Folktale', content: 'Folktale' },
+    { value: 'Poetry', content: 'Poetry' },
+  ];
+
+  const Options = () => bookCategories.map((category, index) => {
+    const { value, content } = category;
+    return <Option key={uuidv4()} index={index} value={value} content={content} />;
   });
 
   const handleChange = (e) => {
@@ -29,6 +47,9 @@ export default function AddBook() {
       title: bookValues.title,
       author: bookValues.author,
       id: uuidv4(),
+      completed: bookValues.completed,
+      currentChapter: bookValues.currentChapter,
+      comments: bookValues.comments,
     };
 
     dispatch(addBook(book));
@@ -57,6 +78,16 @@ export default function AddBook() {
           placeholder="Book author"
           name="author"
         />
+        <select
+          className="book-category"
+          typeof="text"
+          required
+          name="category"
+          onChange={handleChange}
+          value={bookValues.category}
+        >
+          {Options()}
+        </select>
         <button type="submit">ADD BOOK</button>
       </form>
     </div>
