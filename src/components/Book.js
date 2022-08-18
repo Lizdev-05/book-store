@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { removeBook } from '../redux/books/Books';
+import { ProgressBar, percentage } from './ProgressBar';
 
 const Book = (props) => {
   const dispath = useDispatch();
@@ -34,12 +35,11 @@ const Book = (props) => {
         </div>
         <div className="progress-chapter">
           <div className="progress">
-            <svg className="svg" width="120" height="150">
-              <circle className="circle-back" cx="50" cy="80" r="40" />
-              <circle className="circle-front" cx="50" cy="80" r="40" />
-            </svg>
             <div>
-              <div className="percent">1%</div>
+              <ProgressBar />
+            </div>
+            <div>
+              <div className="percent">{`${percentage}%`}</div>
               <div className="completed">completed</div>
             </div>
           </div>
@@ -47,7 +47,7 @@ const Book = (props) => {
           <div>
             <div className="current-chapter">Current Chapter</div>
             <div className="chapter">
-              <span className="capterXOfY">Chapter 0</span>
+              <span className="capterXOfY">Chapter 5</span>
             </div>
             <button className="update-button" type="button">
               Update Progress
