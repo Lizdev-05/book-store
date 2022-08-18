@@ -49,7 +49,7 @@ $ git clone {repository URL}
 
 ### Usage
 
-> open your directory math-magician/
+> open your directory book-store/
 
 \_use vs-code or any IDE to view line code .
 
@@ -61,7 +61,7 @@ $ npm start to run the local server
 
 ## Click here for live version
 
-- live demo: [coming soon]()
+- live demo: [CLICK ME!](https://lizdev-book-store.netlify.app/)
 
 ## Authors
 
