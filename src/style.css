@@ -216,8 +216,8 @@ header h1 {
   fill: transparent;
   stroke: var(--blue);
   stroke-width: 8;
-  stroke-dasharray: 250;
-  stroke-dashoffset: 250;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
 }
 
 /* form styling starts here */

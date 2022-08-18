@@ -8,7 +8,6 @@ const Book = (props) => {
   const {
     title, author, id, category,
   } = props;
-  const [title2, completed, currChapter] = title.split('>');
 
   const removeHandler = () => {
     dispath(removeBook(id));
@@ -20,7 +19,7 @@ const Book = (props) => {
         <div className="book-desc">
           <div className="book-obj">
             <p className="category">{category}</p>
-            <h1 className="title">{title2}</h1>
+            <h1 className="title">{title}</h1>
             <small className="author">{author}</small>
           </div>
           <div className="obj-actions">
@@ -40,7 +39,7 @@ const Book = (props) => {
               <circle className="circle-front" cx="50" cy="80" r="40" />
             </svg>
             <div>
-              <div className="percent">{completed}</div>
+              <div className="percent">1%</div>
               <div className="completed">completed</div>
             </div>
           </div>
@@ -48,7 +47,7 @@ const Book = (props) => {
           <div>
             <div className="current-chapter">Current Chapter</div>
             <div className="chapter">
-              <span className="capterXOfY">{`Chapter ${currChapter}`}</span>
+              <span className="capterXOfY">Chapter 0</span>
             </div>
             <button className="update-button" type="button">
               Update Progress

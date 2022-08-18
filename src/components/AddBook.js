@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/books/Books';
-import Option from './Option';
 
 export default function AddBook() {
   const dispatch = useDispatch();
@@ -10,23 +9,7 @@ export default function AddBook() {
   const [bookValues, setBookValues] = useState({
     title: '',
     author: '',
-    category: 'Fiction',
-    currentChapter: '0',
-    completed: '0%',
-    comments: [],
-  });
-
-  const bookCategories = [
-    { value: 'Fiction', content: 'Fiction' },
-    { value: 'Nonfiction', content: 'Nonfiction' },
-    { value: 'Drama', content: 'Drama' },
-    { value: 'Folktale', content: 'Folktale' },
-    { value: 'Poetry', content: 'Poetry' },
-  ];
-
-  const Options = () => bookCategories.map((category, index) => {
-    const { value, content } = category;
-    return <Option key={uuidv4()} index={index} value={value} content={content} />;
+    category: '',
   });
 
   const handleChange = (e) => {
@@ -41,21 +24,21 @@ export default function AddBook() {
     e.preventDefault();
     const title = document.getElementsByName('title')[0].value;
     const author = document.getElementsByName('author')[0].value;
+    const category = document.getElementsByName('category')[0].value;
 
     if (!title.length > 0 || !author.length > 0) return;
     const book = {
       title: bookValues.title,
       author: bookValues.author,
+      category: bookValues.category,
       id: uuidv4(),
-      completed: bookValues.completed,
-      currentChapter: bookValues.currentChapter,
-      comments: bookValues.comments,
     };
 
     dispatch(addBook(book));
     setBookValues({
       title: '',
       author: '',
+      category,
     });
   };
   return (
@@ -80,16 +63,27 @@ export default function AddBook() {
           className="book-author"
           name="author"
         />
-        <select
-          className="book-category"
-          typeof="text"
-          required
-          name="category"
-          onChange={handleChange}
-          value={bookValues.category}
-        >
-          {Options()}
-        </select>
+        <label htmlFor="category-select">
+          <select
+            className="book-category"
+            onChange={handleChange}
+            id="category-select"
+            name="category"
+            value={bookValues.category}
+            required
+          >
+            <option disabled> Book </option>
+            <option value="fiction"> Fiction </option>
+            <option value="action"> Action </option>
+            <option value="suspense"> Suspense </option>
+            <option value="romance"> Programming </option>
+            <option value="adventure"> Adventure </option>
+            <option value="sci-fi"> Science Fiction </option>
+            <option value="history"> History </option>
+            <option value="thriller"> Thriller </option>
+            <option value="physics"> Physics </option>
+          </select>
+        </label>
         <button type="submit" className="add-book-btn">ADD BOOK</button>
       </form>
     </div>
