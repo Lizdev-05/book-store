@@ -59,15 +59,16 @@ export default function AddBook() {
     });
   };
   return (
-    <div>
-      <h1>ADD NEW BOOK</h1>
-      <form onSubmit={addBookHandler}>
+    <div className="form-container">
+      <h1 className="add-new">Add New Book</h1>
+      <form className="form" onSubmit={addBookHandler}>
         <input
           type="text"
           required
           value={bookValues.title}
           onChange={handleChange}
           placeholder="Book title"
+          className="book-title"
           name="title"
         />
         <input
@@ -76,6 +77,7 @@ export default function AddBook() {
           value={bookValues.author}
           onChange={handleChange}
           placeholder="Book author"
+          className="book-author"
           name="author"
         />
         <select
@@ -88,7 +90,7 @@ export default function AddBook() {
         >
           {Options()}
         </select>
-        <button type="submit">ADD BOOK</button>
+        <button type="submit" className="add-book-btn">ADD BOOK</button>
       </form>
     </div>
   );
