@@ -8,7 +8,7 @@ const BookLists = () => {
     <div>
       {books.map((book) => (
         // eslint-disable-next-line max-len
-        <Book key={book[0]} id={book[0]} title={book[1][0].title} author={book[1][0].author} completed={book.completed} currentChapter={book.currentChapter} />
+        <Book key={book[0]} id={book[0]} title={book[1][0].title} author={book[1][0].author} />
       ))}
       <AddBook />
     </div>
