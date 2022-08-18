@@ -2,6 +2,9 @@
 
 BookStore CMS
 
+![](./src/bookstore.PNG)
+
+
 # Description the project.
 
 The Bookstore is a website where the user can display a list of books, add a book by providing a title, an author, and selecting from the categories, and remove a selected book.
